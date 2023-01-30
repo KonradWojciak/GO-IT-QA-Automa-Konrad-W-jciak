@@ -8,40 +8,39 @@ function myColorChange() {
   element.style.color = "red";
 }
 
-function mojaFunkcja(imie) {
-
-    const clients = ["Mango", "Poly", "Ajax"];
-    const clientNameToFind = "Patryk";
-    let message; 
-    
-    for (const client of clients) {
-    
-      if (client === imie) {
-        message = "Klient z takim imieniem jest w bazie danych!";
-        break;
-      }
-    
-      message = "Nie znaleźliśmy takiego klienta w bazie danych!";
-    }
-    
-    console.log(message);
-    
-}
-
-
-const book = {
-  title: "The Last Kingdom",
-  author: "Bernard Cornwell",
-  genres: ["historical prose", "adventure"],
-  isPublic: true,
-  rating: 8.38,
+const przesylka = {
+  name: "",
+  ulica: "",
 };
 
-const bookTitle = book.title;
-console.log(bookTitle);// 'The Last Kingdom'
+const przesylka2 = {
+  name: "",
+  ulica: "",
+};
 
-const bookGenres = book.genres;
-console.log(bookGenres);// ['historical prose', 'adventurs']
+przesylka2.waga = 20;
+przesylka.name = "List";
+przesylka2.name = "Paczka";
 
-const bookPrice = book.price;
-console.log(bookPrice);// undefined
+function mojaFunkcja(id) {
+  const element = document.getElementById("id01");
+  const element2 = document.getElementById("id02");
+
+  if (id === 1) {
+    //instrukcje dla przycisku z informacja o przesylce 1
+
+    informacja = "Typ twojej przesylki to: " + przesylka.name;
+    element.innerHTML = informacja;
+
+    informacja = "Przesyłka nie posiada wagi";
+    element2.innerHTML = informacja;
+  } else if (id === 2) {
+    //instrukcje dla przycisku z informacja o przesylce 2
+
+    informacja = "Typ twojej przesylki to: " + przesylka2.name;
+    element.innerHTML = informacja;
+
+    informacja = "Waga twojej przesylki to: " + przesylka2.waga + " kg";
+    element2.innerHTML = informacja;
+  }
+}
