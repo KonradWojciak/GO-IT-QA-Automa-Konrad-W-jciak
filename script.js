@@ -8,19 +8,15 @@ function myColorChange() {
   element.style.color = "red";
 }
 
-const przesylka = {
-  name: "",
-  ulica: "",
-};
+class Przesylka {
+  constructor(name, waga) {
+    this.name = name;
+    this.waga = waga;
+  }
+}
 
-const przesylka2 = {
-  name: "",
-  ulica: "",
-};
-
-przesylka2.waga = 20;
-przesylka.name = "List";
-przesylka2.name = "Paczka";
+let przesylka = new Przesylka("List", "");
+let przesylka2 = new Przesylka("Paczka", 20);
 
 function mojaFunkcja(id) {
   const element = document.getElementById("id01");
@@ -44,61 +40,3 @@ function mojaFunkcja(id) {
     element2.innerHTML = informacja;
   }
 }
-
-function dodawanie(a, b, c) {
-  consol.log(a + b + c);
-}
-
-function dodawanieReturn(a, b, c) {
-  return a + b + c;
-}
-
-let suma;
-consol.log(suma);
-
-function processCall(recipient) {
-  const liczba = Math.random() > 0.5;
-
-  console.log(liczba);
-  console.log(!liczba);
-
-  if (!liczba) {
-    console.log(
-      "Abonent " + recipient + " jest niedostępny, zostaw wiadomość."
-    );
-  } else {
-    console.log(`Łączenie z ${recipient}, proszę czekać...`);
-  }
-}
-
-processCall("Mango");
-
-function processCall(recipient, onAvailable, onNotAvailable) {
-  // Symuluj dostępność abonenta za pomocą liczby losowej
-  const isRecipientAvailable = Math.random() > 0.5;
-
-  if (!isRecipientAvailable) {
-    onNotAvailable(recipient);
-    return;
-  }
-
-  onAvailable(recipient);
-}
-
-function takeCall(name) {
-  console.log(`Łączenie z ${name}, proszę czekać...`);
-  // Logika odbierania połączenia
-}
-
-function activateAnsweringMachine(name) {
-  console.log(`Abonent ${name} jest niedostępny, zostaw wiadomość.`);
-  // Logika aktywacji automatycznej sekretarki
-}
-
-function leaveHoloMessage(name) {
-  console.log(`Abonent ${name} jest niedostępny, nagrywamy hologram.`);
-  // Logika nagrywania hologramu
-}
-
-processCall("Mango", takeCall, activateAnsweringMachine);
-processCall("Poly", takeCall, leaveHoloMessage);
